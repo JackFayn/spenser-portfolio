@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spenser McDowell - ECE Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gt-gold: #B3A369;
+            --gt-navy: #003057;
+            --gt-white: #FFFFFF;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --bg-light: #f8f7f4;
+            --bg-section: #ffffff;
+            --accent: #003057;
+            --accent-light: #e8ecf1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.7;
+            background: var(--bg-light);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 48, 87, 0.97);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0 2rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--gt-gold);
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--gt-gold);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--gt-navy) 0%, #001a33 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--gt-gold);
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.15rem;
+            color: var(--gt-gold);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .intro-text {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .hero .cta-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero .cta-links a {
+            padding: 0.7rem 1.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .cta-primary {
+            background: var(--gt-gold);
+            color: var(--gt-navy);
+        }
+
+        .cta-primary:hover {
+            background: #c4b478;
+        }
+
+        .cta-secondary {
+            border: 1.5px solid rgba(255,255,255,0.4);
+            color: white;
+        }
+
+        .cta-secondary:hover {
+            border-color: var(--gt-gold);
+            color: var(--gt-gold);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gt-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-divider {
+            width: 50px;
+            height: 3px;
+            background: var(--gt-gold);
+            margin-bottom: 2rem;
+        }
+
+        /* About */
+        #about {
+            background: var(--bg-section);
+        }
+
+        #about p {
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        /* Career Goals */
+        #career {
+            background: var(--bg-light);
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .goal-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--gt-gold);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .goal-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gt-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .goal-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .skills-row {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            background: var(--accent-light);
+            color: var(--gt-navy);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* VIP Project */
+        #project {
+            background: var(--bg-section);
+        }
+
+        #project p, #project li {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        #project p {
+            margin-bottom: 1rem;
+        }
+
+        .project-overview {
+            background: var(--bg-light);
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .project-overview dt {
+            font-weight: 600;
+            color: var(--gt-navy);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.8rem;
+        }
+
+        .project-overview dt:first-child {
+            margin-top: 0;
+        }
+
+        .project-overview dd {
+            color: var(--text-secondary);
+            margin-bottom: 0.3rem;
+        }
+
+        .project-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .project-images.three-col {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .project-img-card {
+            background: var(--bg-light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .project-img-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background: white;
+            padding: 0.5rem;
+        }
+
+        .project-img-card .caption {
+            padding: 0.8rem 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .team-photo-section {
+            margin-top: 2rem;
+        }
+
+        .team-photo-section img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .team-photo-section .caption {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        h3.subsection {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--gt-navy);
+            margin: 1.5rem 0 0.8rem;
+        }
+
+        #project ul {
+            padding-left: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        #project li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Experience */
+        #experience {
+            background: var(--bg-light);
+        }
+
+        .exp-item {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .exp-item h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--gt-navy);
+        }
+
+        .exp-item .exp-sub {
+            font-size: 0.9rem;
+            color: var(--gt-gold);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-item p, .exp-item li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .exp-item ul {
+            padding-left: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .exp-item li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* Resume */
+        #resume {
+            background: var(--bg-section);
+        }
+
+        .resume-embed {
+            width: 100%;
+            height: 800px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--gt-navy);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #004a80;
+        }
+
+        /* Contact */
+        #contact {
+            background: var(--gt-navy);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        #contact .section-title {
+            color: white;
+        }
+
+        #contact .section-divider {
+            margin: 0.5rem auto 1.5rem;
+        }
+
+        #contact p {
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 1.5rem;
+        }
+
+        #contact a {
+            color: var(--gt-gold);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        #contact a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #001a33;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .goals-grid, .project-images, .project-images.three-col {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-img {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-inner">
+        <div class="logo">Spenser McDowell</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#career">Goals</a></li>
+            <li><a href="#project">Project</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero / Welcome -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <img src="images/profile.png" alt="Spenser McDowell" class="hero-img">
+        <h1>Spenser McDowell</h1>
+        <div class="subtitle">Electrical &amp; Computer Engineering | Georgia Institute of Technology</div>
+        <p class="intro-text">
+            ECE student at Georgia Tech with a hands-on background in hardware, programming, and supercapacitor research. Currently part of the Chip Scale Power and Energy VIP team, where I help characterize supercapacitors destined for NASA's high-altitude balloon platform.
+        </p>
+        <div class="cta-links">
+            <a href="#project" class="cta-primary">View My Work</a>
+            <a href="#contact" class="cta-secondary">Get in Touch</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Me -->
+<section id="about">
+    <div class="section-inner">
+        <h2 class="section-title">About Me</h2>
+        <div class="section-divider"></div>
+
+        <p>My dad and I built my first computer from scratch. We spent ten days in his office piecing together parts from Amazon, Micro Center, and a donated video card from his coworker, reading manuals and watching YouTube guides whenever we hit a wall. By the end I had a gaming PC that doubled as a school computer, but the real takeaway wasn't the games. Watching those unfamiliar parts fit together like puzzle pieces and somehow produce images on a screen felt like magic. I wanted to understand how it all worked.</p>
+
+        <p>Building a computer is expensive, so I found cheaper ways to chase that same feeling. My dad and I set up a home media server on a Raspberry Pi, basically a homemade Netflix running off a local hard drive. That project cemented my interest in computer engineering, and it started showing up in the classes I chose. By high school my schedule was almost entirely STEM. As the math got harder I enjoyed it more, not less. The satisfaction of finally getting a difficult concept pushed me to study ahead on my own, and I ended up self-teaching through Calculus II.</p>
+
+        <p>That pattern has stuck with me. Challenges aren't something to avoid; they're how you actually learn a subject instead of just skimming the surface. I expect the problems only get harder from here, but the curiosity and stubbornness that got me through those ten days in my dad's office haven't gone anywhere.</p>
+    </div>
+</section>
+
+<!-- Career Goals -->
+<section id="career">
+    <div class="section-inner">
+        <h2 class="section-title">Career Goals</h2>
+        <div class="section-divider"></div>
+
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">My career goal is to work as an engineer at an electronic device company designing IC chips. I want to go from individual contributor to leading my own design team, and eventually run my own chip design fabrication startup.</p>
+
+        <div class="goals-grid">
+            <div class="goal-card">
+                <h3>5-Year Plan</h3>
+                <p>Become a senior design engineer at an electronic device company, working on IC chip design and leading my own team.</p>
+            </div>
+            <div class="goal-card">
+                <h3>10-Year Plan</h3>
+                <p>Launch my own chip design fabrication startup, building on the industry experience and technical expertise gained in my engineering career.</p>
+            </div>
+        </div>
+
+        <h3 class="subsection" style="margin-top: 2rem;">Skills</h3>
+        <div class="skills-row">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">MATLAB</span>
+            <span class="skill-tag">Breadboard Prototyping</span>
+            <span class="skill-tag">myDAQ</span>
+            <span class="skill-tag">Circuit Analysis</span>
+            <span class="skill-tag">Digital System Design</span>
+        </div>
+    </div>
+</section>
+
+<!-- VIP Project -->
+<section id="project">
+    <div class="section-inner">
+        <h2 class="section-title">Discovery Project: Chip Scale Power &amp; Energy VIP</h2>
+        <div class="section-divider"></div>
+
+        <div class="project-overview">
+            <dl>
+                <dt>Program</dt>
+                <dd>Georgia Tech Vertically Integrated Projects (VIP)</dd>
+                <dt>Project</dt>
+                <dd>Chip Scale Power and Energy (HASP)</dd>
+                <dt>Sub-Team</dt>
+                <dd>Characterization</dd>
+                <dt>Semester</dt>
+                <dd>Spring 2026</dd>
+                <dt>Advisor</dt>
+                <dd>Dr. Ready</dd>
+            </dl>
+        </div>
+
+        <h3 class="subsection">What We Are Building</h3>
+        <p>Our VIP team fabricates supercapacitors that will be launched to high altitudes aboard NASA's High Altitude Student Platform (HASP), a balloon-based research program sponsored by NASA and LSU Space Grant. The goal is to test how these supercapacitors perform under the extreme conditions of near-space flight.</p>
+
+        <p>The project is split into four sub-teams: Fabrication builds the supercapacitors using carbon nanotube (CNT) electrodes and chemical coatings. The Supercapacitor Design team works on the electrolyte materials (PVA gel mixed with KOH or ionic liquids). Systems Design handles the DAQ board and PCB that will fly on the payload. And my team, Characterization, tests the finished supercapacitors to measure their electrical properties before they go up.</p>
+
+        <h3 class="subsection">My Role on the Characterization Team</h3>
+        <p>I work with the Characterization sub-team, where our job is to evaluate the performance of each supercapacitor the Fabrication team produces. We run three main types of tests:</p>
+        <ul>
+            <li><strong>Cyclic Voltammetry (CV)</strong> using the Gamry instrument. This test sweeps voltage at a constant rate while measuring current. The area of the resulting CV curve tells us the average capacitance of the supercapacitor. A larger enclosed area means more charge storage.</li>
+            <li><strong>Galvanic Charge Discharge (GCD)</strong> using the Arbin instrument. We hold current constant at 10 mA and measure how voltage changes over time as the supercapacitor charges and discharges. The voltage drop at the transition from charge to discharge tells us the internal resistance. We typically run 100 cycles per sample.</li>
+            <li><strong>Scanning Electron Microscopy (SEM)</strong> to image the carbon nanotube forest on half-assembled supercapacitors. The SEM fires an electron beam at the sample surface and produces high-magnification images that let us check the height and uniformity of the nanotubes.</li>
+        </ul>
+
+        <h3 class="subsection">Results and Observations</h3>
+        <p>We tested the F24-1 P14 supercapacitor (ionic liquid electrolyte) on the Arbin at 3.0V. The GCD curves show the expected logarithmic charge and discharge behavior: voltage climbs quickly at first as the large voltage difference drives high current, then levels off as the capacitor approaches the supply voltage. Discharge follows the inverse pattern.</p>
+
+        <p>Over 100 cycles, we observed that capacitance starts high (around 1.75 mF) and gradually decreases to roughly 0.5 mF. This is expected because GCD testing is destructive to the supercapacitor material. Resistance fluctuated in the 30,000 to 60,000 Ohm range. Efficiency started low (below 40%) but climbed to 70-90% within the first 10-20 cycles as the electrolyte wet the electrode surfaces and lowered resistance.</p>
+
+        <p>We also characterized a set of KOH-based supercapacitors made by the Design team. These did not perform well: the CV curve area was very small, indicating poor charge storage. The GCD on the KOH samples produced a square wave instead of the expected logarithmic curve, suggesting the supercapacitor was not functioning as intended.</p>
+
+        <p>During testing on March 3, one of the supercapacitors cracked, which we documented. This kind of structural failure is something the team needs to address before flight-ready units are produced.</p>
+
+        <div class="project-images three-col">
+            <div class="project-img-card">
+                <img src="images/gcd-curve.png" alt="GCD Charge-Discharge Curve showing voltage vs time for F24-1 P14 supercapacitor">
+                <div class="caption">GCD Curve (F24-1 P14, 3.0V, Curve 33) - Voltage vs. Time showing charge/discharge behavior</div>
+            </div>
+            <div class="project-img-card">
+                <img src="images/efficiency-curve.png" alt="Efficiency Over Time graph showing coulombic efficiency increasing over 100 GCD cycles">
+                <div class="caption">Efficiency Over Time - Coulombic efficiency rises from ~35% to 70-90% as the electrolyte wets the electrodes</div>
+            </div>
+            <div class="project-img-card">
+                <img src="images/cracked-supercap.png" alt="Close-up photo of a cracked supercapacitor">
+                <div class="caption">Cracked supercapacitor observed during testing - structural failure to address before flight</div>
+            </div>
+        </div>
+
+        <div class="team-photo-section">
+            <h3 class="subsection">The Characterization Team</h3>
+            <img src="images/team.png" alt="Characterization sub-team members in the lab">
+            <div class="caption">Characterization team members in the lab during a testing session (Spring 2026)</div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+    <div class="section-inner">
+        <h2 class="section-title">Experience</h2>
+        <div class="section-divider"></div>
+
+        <div class="exp-item">
+            <h3>NCG Cinema</h3>
+            <div class="exp-sub">Floorstaff</div>
+            <ul>
+                <li>Processed up to 50+ transactions per shift with a register averaging $200 cash</li>
+                <li>Maintained clean environments in theaters with a capacity of 50-60 seats</li>
+            </ul>
+        </div>
+
+        <div class="exp-item">
+            <h3>Relevant Coursework</h3>
+            <div class="exp-sub">Georgia Institute of Technology - ECE</div>
+            <ul>
+                <li><strong>Currently Enrolled:</strong> ECE 2040 Circuit Analysis, ECE 2026 Signals and Processing</li>
+                <li><strong>Completed:</strong> ECE 2020 Digital System Design</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Resume -->
+<section id="resume">
+    <div class="section-inner">
+        <h2 class="section-title">Resume</h2>
+        <div class="section-divider"></div>
+        <iframe class="resume-embed" src="Spenser_McDowell_Resume.pdf" title="Spenser McDowell Resume"></iframe>
+        <div style="text-align: center;">
+            <a href="Spenser_McDowell_Resume.pdf" download class="download-btn">Download Resume (PDF)</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <div class="section-inner">
+        <h2 class="section-title">Contact</h2>
+        <div class="section-divider"></div>
+        <p>Interested in connecting? Feel free to reach out.</p>
+        <a href="mailto:smcdowell33@gatech.edu">smcdowell33@gatech.edu</a>
+        <br><br>
+        <a href="tel:4704202703">470-420-2703</a>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 Spenser McDowell. Georgia Institute of Technology.
+</footer>
+
+</body>
+</html>
