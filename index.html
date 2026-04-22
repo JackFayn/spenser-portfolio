@@ -203,7 +203,7 @@
 
         /* Career Goals */
         #career {
-            background: var(--bg-light);
+            background: var(--bg-section);
         }
 
         .goals-grid {
@@ -217,6 +217,7 @@
             background: white;
             padding: 2rem;
             border-radius: 10px;
+            border: 1px solid var(--accent-light);
             border-left: 4px solid var(--gt-gold);
             box-shadow: 0 2px 12px rgba(0,0,0,0.04);
         }
@@ -251,7 +252,7 @@
 
         /* VIP Project */
         #project {
-            background: var(--bg-section);
+            background: var(--bg-light);
         }
 
         #project p, #project li {
@@ -264,7 +265,8 @@
         }
 
         .project-overview {
-            background: var(--bg-light);
+            background: var(--bg-section);
+            border: 1px solid var(--accent-light);
             padding: 1.5rem 2rem;
             border-radius: 10px;
             margin-bottom: 2rem;
@@ -293,6 +295,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
             margin: 2rem 0;
+            align-items: start;
         }
 
         .project-images.three-col {
@@ -308,10 +311,9 @@
 
         .project-img-card img {
             width: 100%;
-            height: 250px;
-            object-fit: contain;
+            height: auto;
+            display: block;
             background: white;
-            padding: 0.5rem;
         }
 
         .project-img-card .caption {
@@ -354,6 +356,17 @@
             margin-bottom: 0.4rem;
         }
 
+        /* Discovery Project */
+        #discovery {
+            background: var(--bg-section);
+        }
+
+        #discovery p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
         /* Experience */
         #experience {
             background: var(--bg-light);
@@ -364,6 +377,7 @@
             padding: 1.5rem 2rem;
             border-radius: 10px;
             margin-bottom: 1rem;
+            border: 1px solid var(--accent-light);
             box-shadow: 0 2px 12px rgba(0,0,0,0.04);
         }
 
@@ -396,7 +410,7 @@
 
         /* Resume */
         #resume {
-            background: var(--bg-section);
+            background: var(--bg-light);
         }
 
         .resume-embed {
@@ -499,9 +513,10 @@
         <div class="logo">Spenser McDowell</div>
         <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#career">Goals</a></li>
-            <li><a href="#project">Project</a></li>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="#career">Goals</a></li>
+            <li><a href="#project">VIP</a></li>
+            <li><a href="#discovery">Discovery</a></li>
             <li><a href="#resume">Resume</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -535,6 +550,32 @@
         <p>Building a computer is expensive, so I found cheaper ways to chase that same feeling. My dad and I set up a home media server on a Raspberry Pi, basically a homemade Netflix running off a local hard drive. That project cemented my interest in computer engineering, and it started showing up in the classes I chose. By high school my schedule was almost entirely STEM. As the math got harder I enjoyed it more, not less. The satisfaction of finally getting a difficult concept pushed me to study ahead on my own, and I ended up self-teaching through Calculus II.</p>
 
         <p>That pattern has stuck with me. Challenges aren't something to avoid; they're how you actually learn a subject instead of just skimming the surface. I expect the problems only get harder from here, but the curiosity and stubbornness that got me through those ten days in my dad's office haven't gone anywhere.</p>
+    </div>
+</section>
+
+<!-- Experience -->
+<section id="experience">
+    <div class="section-inner">
+        <h2 class="section-title">Experience</h2>
+        <div class="section-divider"></div>
+
+        <div class="exp-item">
+            <h3>NCG Cinema</h3>
+            <div class="exp-sub">Floorstaff</div>
+            <ul>
+                <li>Processed up to 50+ transactions per shift with a register averaging $200 cash</li>
+                <li>Maintained clean environments in theaters with a capacity of 50-60 seats</li>
+            </ul>
+        </div>
+
+        <div class="exp-item">
+            <h3>Relevant Coursework</h3>
+            <div class="exp-sub">Georgia Institute of Technology - ECE</div>
+            <ul>
+                <li><strong>Currently Enrolled:</strong> ECE 2040 Circuit Analysis, ECE 2026 Signals and Processing</li>
+                <li><strong>Completed:</strong> ECE 2020 Digital System Design</li>
+            </ul>
+        </div>
     </div>
 </section>
 
@@ -634,28 +675,50 @@
     </div>
 </section>
 
-<!-- Experience -->
-<section id="experience">
+<!-- Discovery Project -->
+<section id="discovery">
     <div class="section-inner">
-        <h2 class="section-title">Experience</h2>
+        <h2 class="section-title">Discovery Project: Arduino Temperature &amp; Humidity Reader</h2>
         <div class="section-divider"></div>
 
-        <div class="exp-item">
-            <h3>NCG Cinema</h3>
-            <div class="exp-sub">Floorstaff</div>
-            <ul>
-                <li>Processed up to 50+ transactions per shift with a register averaging $200 cash</li>
-                <li>Maintained clean environments in theaters with a capacity of 50-60 seats</li>
-            </ul>
+        <div class="project-overview">
+            <dl>
+                <dt>Platform</dt>
+                <dd>Arduino Uno</dd>
+                <dt>Language</dt>
+                <dd>C++ (via the Arduino IDE)</dd>
+                <dt>Hardware</dt>
+                <dd>DHT sensor, OLED display, breadboard, jumper wires</dd>
+                <dt>Outcome</dt>
+                <dd>Working temperature and humidity monitor</dd>
+            </dl>
         </div>
 
-        <div class="exp-item">
-            <h3>Relevant Coursework</h3>
-            <div class="exp-sub">Georgia Institute of Technology - ECE</div>
-            <ul>
-                <li><strong>Currently Enrolled:</strong> ECE 2040 Circuit Analysis, ECE 2026 Signals and Processing</li>
-                <li><strong>Completed:</strong> ECE 2020 Digital System Design</li>
-            </ul>
+        <h3 class="subsection">Discovery Project Idea:</h3>
+        <p>My initial idea for the project was that I wanted to familiarize myself with a piece of equipment that I had never worked with before, and after looking through some examples of devices used for this project I decided on the Arduino Uno. From there I searched the internet for projects that can be done with the Arduino, and considering the heat outside I decided on a temperature and humidity reader.</p>
+
+        <h3 class="subsection">Project Progress:</h3>
+        <p>I was able to quickly find a tutorial online that included a part listed outside of just the Arduino itself. While some of the parts needed to be substituted due to them not being in supply or were not able to be shipped here, I was fortunately able to find all the necessary parts off of Amazon. After gathering all the necessary parts, I followed along with the tutorial to code the Arduino Uno through the Arduino IDE. However the Arduino IDE is coded in C++, so I had to get a handle on the syntax to understand what I was actually coding.</p>
+
+        <h3 class="subsection">Successes and Failures:</h3>
+        <p>When doing this project, I experienced both success and failure. I had failed when I made a mistake in ordering the parts and bought male to female jumper wires. The DHT sensor is connected to the OLED display by a breadboard, and those two devices are connected to the Arduino by male-to-male jumper wires. Not having the proper wires mean the Arduino could not be connected to the external devices. I had another failure when I tried to connect the Arduino to my computer and found that I did not have the proper cable to connect it. This was an oversight on my part and a failure to gather the necessary materials. Fortunately, I was able to borrow the correct cable from a friend.</p>
+
+        <p>I didn&rsquo;t only fail though; I succeeded in completing the project and having a working temperature and humidity sensor. The project gave me the confidence to be able to use a new programming language and gave me a rudimentary understanding of how to code electronic devices.</p>
+
+        <h3 class="subsection">Skills Gained and Reflections:</h3>
+        <p>I gained a few skills throughout the project, one of them being able to code basic C++ through the Arduino IDE. This includes the basic syntax of the programming language and particular commands that stem from the DHT sensor library. I was also able to increase my understanding of how to use a breadboard from beyond just the common electronic devices or circuit elements like logic gates and resistors. Finally, I also learned how to operate the actual Arduino itself, such as what the purpose of each port is on the Arduino.</p>
+
+        <p>Overall, this project was a great experience with learning skills that I would not have learned in the classroom. I can say that this project has given me an increased interest in my threads because I enjoyed working with the physical devices to create a practical effect.</p>
+
+        <div class="project-images">
+            <div class="project-img-card">
+                <img src="images/arduino-build.png" alt="Arduino Uno wired to a DHT sensor and OLED display on a breadboard, with the OLED reading out room humidity, temperature, and heat index">
+                <div class="caption">The finished build. The OLED reads out room humidity, temperature, and heat index from the DHT sensor on the breadboard.</div>
+            </div>
+            <div class="project-img-card">
+                <img src="images/arduino-code.png" alt="Arduino IDE showing the C++ source for the humidity and temperature project, including DHT.h and U8glib.h includes, DHTPIN and DHTTYPE defines, and the SSD1306 display setup">
+                <div class="caption">Source in the Arduino IDE. Uses the DHT and U8glib libraries to pull sensor data and drive the SSD1306 OLED.</div>
+            </div>
         </div>
     </div>
 </section>
